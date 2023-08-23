@@ -1,39 +1,32 @@
-#include <math.h>
-#include <assert.h>
-
-enum ROOTS_NUMBER //RootsCount_t
-    {
-    INF_ROOTS = -1,//
-    ZERO_ROOTS,
-    ONE_ROOT,
-    TWO_ROOTS
-    };
+RootsCount SolveLinear(const double k, const double b, double *x1);
+RootsCount SolveSquare(const double a, const double b, const double c,
+                        Roots *roots_p);
 
 /* Документация к функции*/
 /* doxygen */
 
-/*!
-Функция для решения квадратного уравнения вида ax^2 + bx + c = 0
-\param[in] a, b, c Коэфиценты уравнения
-\param[out] x1, x2 Корни уравнения
-\return Колличество корней
-*/
-ROOTS_NUMBER SolveSquare(const double a, const double b, const double c,
-                         double *x1, double *x2)
+//--------------------------------------------------------------
+//!Функция для решения квадратного уравнения вида ax^2 + bx + c = 0
+//!
+//!@param[in] a, b, c Коэфиценты уравнения
+//!@param[out] roots_p Указатель на корни уравнения
+//!
+//!@return Колличество корней
+//--------------------------------------------------------------
+
+RootsCount SolveSquare(const double a, const double b, const double c,
+                        Roots *roots_p)
     {
     /* Проверка ошибок */
-    assert (isfinite(a));
-    assert (isfinite(b));
-    assert (isfinite(c));
-
-    assert (x1 != NULL);
-    assert (x2 != NULL);
-    assert (x1 != x2);
+    assert (std::isfinite(a));
+    assert (std::isfinite(b));
+    assert (std::isfinite(c));
+    assert (roots_p != NULL);
 //-NDEBUG
 
     if (a == 0)
         {
-        return SolveLinear(b, c, x1);
+        return SolveLinear(b, c, &(*roots_p).x1);
         }
     else
         {
@@ -41,13 +34,13 @@ ROOTS_NUMBER SolveSquare(const double a, const double b, const double c,
 
         if (d == 0)
             {
-            *x1 = *x2 = -b / (2 * a);
-            return 11;
+            (*roots_p).x1 = (*roots_p).x2 = -b / (2 * a);
+            return ONE_ROOT;
             }
         else if (d > 0)
             {
-            *x1 = (b - d) / (2 * a);
-            *x2 = (b + d) / (2 * a);
+            (*roots_p).x1 = (b - d) / (2 * a);
+            (*roots_p).x2 = (b + d) / (2 * a);
             return TWO_ROOTS;
             }
         }
@@ -58,17 +51,20 @@ ROOTS_NUMBER SolveSquare(const double a, const double b, const double c,
 /* Документация к функции */
 /* doxygen */
 
-/*!
-Функция для решения линейного уравнения вида kx + b = 0
-\param[in] k, b Коэфиценты уравнения
-\param[out] x1 Корень уравнения
-\return Колличество корней
-*/
-int SolveLinear(const double k, const double b, double *x1)
+///----------------------------------------------------
+//!Функция для решения линейного уравнения вида kx + b = 0
+//!
+//!@param[in] k, b Коэфиценты уравнения
+//!@param[out] x1 Корень уравнения
+//!
+//!@return Колличество корней
+///----------------------------------------------------
+
+RootsCount SolveLinear(const double k, const double b, double *x1)
     {
     /* Проверка ошибок */
-    assert (isfinite(k));
-    assert (isfinite(b));
+    assert (std::isfinite(k));
+    assert (std::isfinite(b));
     assert (x1 != NULL);
 
     if (k == 0)

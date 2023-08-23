@@ -1,49 +1,57 @@
 #include <stdio.h>
 #include <assert.h>
-
-enum ROOTS
-    {
-    INF_ROOTS = -1,
-    ZERO_ROOTS,
-    ONE_ROOT,
-    TWO_ROOTS
-    };
+#include <math.h>
 
 // #define INF_ROOTS -1 / Устарело
 // const int kInfRoots = -1 / Можно так
 // const int INF_ROOTS = -1 / или так
 // Идеально ->
-enum error_lables
+enum RootsCount
+    {
+    INF_ROOTS = -1,
+    ZERO_ROOTS = 0,
+    ONE_ROOT = 1,
+    TWO_ROOTS = 2
+    };
+
+enum error
     {
     OK    = 0,
     ERROR = -1
     };
-//a_p
-error InputCoefsSTD(double *a, double *b, double *c)
-    {
-    assert (a != b);
-    assert (b != c);
-    assert (a != c);
 
-    assert (a != NULL);
-    assert (b != NULL);
-    assert (c != NULL);
+struct Coefs
+    {
+    double a;
+    double b;
+    double c;
+    };
+struct Roots
+    {
+    double x1;
+    double x2;
+    };
+
+void InputCoefsSTD(Coefs *coefs_p);
+error OutputCoefsSTD(int nRoots, Roots *roots_p);
+
+void InputCoefsSTD(Coefs *coefs_p)
+    {
+    assert (coefs_p != NULL);
 
     printf("# Square equation solver\n\n"); /* Описание программы */
 
     printf("# Enter a, b, c: "); /* Понятный для пользователя ввод */
-    scanf("%lg %lg %lg", a, b, c); /* Ввод коэфицентов */
+    scanf("%lg %lg %lg",
+        &(*coefs_p).a, &(*coefs_p).b, &(*coefs_p).c); /* Ввод коэфицентов */
 
     //errors? cppreference scanf printf
     }
 
-int OutputCoefsSTD(const int nRoots, const double x1, const double x2)
+error OutputCoefsSTD(const int nRoots, Roots *roots_p)
     {
-    assert (isfinite(nRoots));
-
-    assert (x1 != NULL);
-    assert (x2 != NULL);
-    assert (x1 != x2);
+    assert (std::isfinite(nRoots));
+    assert (roots_p != NULL);
 
     switch (nRoots)
         {
@@ -51,10 +59,11 @@ int OutputCoefsSTD(const int nRoots, const double x1, const double x2)
                 printf("No roots\n");
                 break;
         case ONE_ROOT:
-                printf("x = %.3lg\n", x1);
+                printf("x = %.3lg\n", (*roots_p).x1);
                 break;
         case TWO_ROOTS:
-                printf("x1 = %.3lg, x2 = %.3lg\n", x1, x2);
+                printf("x1 = %.3lg, x2 = %.3lg\n",
+                        (*roots_p).x1, (*roots_p).x2);
                 break;
         case INF_ROOTS:
                 printf("Any number\n");
