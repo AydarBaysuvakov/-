@@ -3,6 +3,12 @@
 #include <math.h>
 #include <assert.h>
 
+enum ioerror
+    {
+    OK    = 0,
+    ERROR = -1
+    };
+
 enum RootsCount
     {
     INF_ROOTS = -1,

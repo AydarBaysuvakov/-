@@ -23,7 +23,6 @@ RootsCount SolveSquare(Coefs coefs, Roots *roots_p)
     assert (isfinite(coefs.b));
     assert (isfinite(coefs.c));
     assert (roots_p != NULL);
-    //-NDEBUG
 
     if (IsEqual(coefs.a, 0))
         {

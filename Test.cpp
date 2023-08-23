@@ -12,8 +12,16 @@ int IsEqual(double a, double b);
 
 TestFeedback TestOne(Coefs coefs, int nRootsRef, Roots RootsRef)
     {
+    assert(isfinite(coefs.a));
+    assert(isfinite(coefs.b));
+    assert(isfinite(coefs.c));
+    assert(isfinite(nRootsRef));
+    assert(isfinite(RootsRef.x1));
+    assert(isfinite(RootsRef.x2));
+
     Roots roots = {0, 0};
     int nRoots = SolveSquare(coefs, &roots);
+
     if (!IsEqual(roots.x1, RootsRef.x1) or !IsEqual(roots.x2, RootsRef.x2))
         {
         printf("ERROR: x1 = %lg, x2 = %lg, nRoots = %d\nEXCEPTED:  x1 = %lg, x2 = %lg, nRoots = %d\n",

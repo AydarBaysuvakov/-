@@ -1,6 +1,6 @@
 #include "header.h"
 
-void InputCoefsSTD(Coefs *coefs_p);
+int InputCoefsSTD(Coefs *coefs_p);
 int OutputCoefsSTD(int nRoots, Roots *roots_p);
 int SolveSquare(Coefs coefs, Roots *roots_p);
 int TestAll();
@@ -11,7 +11,10 @@ int main()
     TestAll();
     #else
     Coefs coefs = {0, 0, 0}; /* Инициализация */
-    InputCoefsSTD(&coefs); /* Ввод коэфицентов */
+    if (InputCoefsSTD(&coefs)) /* Ввод коэфицентов */
+        {
+        return ERROR;
+        }
 
     Roots roots = {0, 0}; /* Инициализируем корни когда это нужно */
     int nRoots = SolveSquare(coefs, &roots);
