@@ -1,39 +1,11 @@
 #include <stdio.h>
-#include <assert.h>
-#include <math.h>
+#include "header.h"
 
-// #define INF_ROOTS -1 / Устарело
-// const int kInfRoots = -1 / Можно так
-// const int INF_ROOTS = -1 / или так
-// Идеально ->
-enum RootsCount
-    {
-    INF_ROOTS = -1,
-    ZERO_ROOTS = 0,
-    ONE_ROOT = 1,
-    TWO_ROOTS = 2
-    };
-
-enum error
+enum output_error
     {
     OK    = 0,
     ERROR = -1
     };
-
-struct Coefs
-    {
-    double a;
-    double b;
-    double c;
-    };
-struct Roots
-    {
-    double x1;
-    double x2;
-    };
-
-void InputCoefsSTD(Coefs *coefs_p);
-error OutputCoefsSTD(int nRoots, Roots *roots_p);
 
 void InputCoefsSTD(Coefs *coefs_p)
     {
@@ -43,14 +15,14 @@ void InputCoefsSTD(Coefs *coefs_p)
 
     printf("# Enter a, b, c: "); /* Понятный для пользователя ввод */
     scanf("%lg %lg %lg",
-        &(*coefs_p).a, &(*coefs_p).b, &(*coefs_p).c); /* Ввод коэфицентов */
+        &coefs_p->a, &coefs_p->b, &coefs_p->c); /* Ввод коэфицентов */
 
     //errors? cppreference scanf printf
     }
 
-error OutputCoefsSTD(const int nRoots, Roots *roots_p)
+output_error OutputCoefsSTD(const int nRoots, Roots *roots_p)
     {
-    assert (std::isfinite(nRoots));
+    assert (isfinite(nRoots));
     assert (roots_p != NULL);
 
     switch (nRoots)

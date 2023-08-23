@@ -1,6 +1,8 @@
-RootsCount SolveLinear(const double k, const double b, double *x1);
-RootsCount SolveSquare(const double a, const double b, const double c,
-                        Roots *roots_p);
+#include "header.h"
+
+RootsCount SolveLinear(const double k, const double b, double *x1_p);
+RootsCount SolveSquare(Coefs coefs, Roots *roots_p);
+int IsEqual(double a, double b);
 
 /* Документация к функции*/
 /* doxygen */
@@ -8,39 +10,37 @@ RootsCount SolveSquare(const double a, const double b, const double c,
 //--------------------------------------------------------------
 //!Функция для решения квадратного уравнения вида ax^2 + bx + c = 0
 //!
-//!@param[in] a, b, c Коэфиценты уравнения
+//!@param[in] coefs Коэфиценты уравнения(coefs.a, coefs.b, coefs.c)
 //!@param[out] roots_p Указатель на корни уравнения
 //!
 //!@return Колличество корней
 //--------------------------------------------------------------
 
-RootsCount SolveSquare(const double a, const double b, const double c,
-                        Roots *roots_p)
+RootsCount SolveSquare(Coefs coefs, Roots *roots_p)
     {
     /* Проверка ошибок */
-    assert (std::isfinite(a));
-    assert (std::isfinite(b));
-    assert (std::isfinite(c));
+    assert (isfinite(coefs.a));
+    assert (isfinite(coefs.b));
+    assert (isfinite(coefs.c));
     assert (roots_p != NULL);
-//-NDEBUG
+    //-NDEBUG
 
-    if (a == 0)
+    if (IsEqual(coefs.a, 0))
         {
-        return SolveLinear(b, c, &(*roots_p).x1);
+        return SolveLinear(coefs.b, coefs.c, &roots_p->x1);
         }
     else
         {
-        double d = b * b - 4 * a * c;
-
-        if (d == 0)
+        double d = coefs.b * coefs.b - 4 * coefs.a * coefs.c;
+        if (IsEqual(d, 0))
             {
-            (*roots_p).x1 = (*roots_p).x2 = -b / (2 * a);
+            roots_p->x1 = roots_p->x2 = -coefs.b / (2 * coefs.a);
             return ONE_ROOT;
             }
         else if (d > 0)
             {
-            (*roots_p).x1 = (b - d) / (2 * a);
-            (*roots_p).x2 = (b + d) / (2 * a);
+            roots_p->x1 = (coefs.b - sqrt(d)) / (2 * coefs.a);
+            roots_p->x2 = (coefs.b + sqrt(d)) / (2 * coefs.a);
             return TWO_ROOTS;
             }
         }
@@ -60,20 +60,20 @@ RootsCount SolveSquare(const double a, const double b, const double c,
 //!@return Колличество корней
 ///----------------------------------------------------
 
-RootsCount SolveLinear(const double k, const double b, double *x1)
+RootsCount SolveLinear(const double k, const double b, double *x1_p)
     {
     /* Проверка ошибок */
-    assert (std::isfinite(k));
-    assert (std::isfinite(b));
-    assert (x1 != NULL);
+    assert (isfinite(k));
+    assert (isfinite(b));
+    assert (x1_p != NULL);
 
-    if (k == 0)
+    if (IsEqual(k, 0))
         {
-        return (b == 0) ? INF_ROOTS : ZERO_ROOTS;
+        return (IsEqual(b, 0)) ? INF_ROOTS : ZERO_ROOTS;
         }
     else
         {
-        *x1 = -b/k;
+        *x1_p = -b / k;
         return ONE_ROOT;
         }
     }

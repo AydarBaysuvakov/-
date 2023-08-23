@@ -1,17 +1,21 @@
-#include "IOcoef.c"
-#include "SolveFunc.c"
+#include "header.h"
 
-//sizeof(*)
-//sizeof(char*) and sizeof(int*)
+void InputCoefsSTD(Coefs *coefs_p);
+int OutputCoefsSTD(int nRoots, Roots *roots_p);
+int SolveSquare(Coefs coefs, Roots *roots_p);
+int TestAll();
 
 int main()
     {
+    #ifdef TEST
+    TestAll();
+    #else
     Coefs coefs = {0, 0, 0}; /* Инициализация */
     InputCoefsSTD(&coefs); /* Ввод коэфицентов */
 
     Roots roots = {0, 0}; /* Инициализируем корни когда это нужно */
-    int nRoots = SolveSquare(coefs.a, coefs.b, coefs.c, &roots);
-    /* Пишем вызов функции так, как нам удобно */
+    int nRoots = SolveSquare(coefs, &roots);
 
     return OutputCoefsSTD(nRoots, &roots); /* Вывод корней */
+    #endif
     }
