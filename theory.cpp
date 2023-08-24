@@ -7,12 +7,12 @@ struct point {
     } pt;
 
 struct Strange {
-   char a;
    int32_t b;
+   char a;
 };
 
 int main(){
-    printf("int %ld\n", sizeof(int));
+    /*printf("int %ld\n", sizeof(int));
     printf("int* %ld\n", sizeof(int*));
     printf("char %ld\n", sizeof(char));
     printf("char* %ld\n", sizeof(char*));
@@ -33,5 +33,10 @@ int main(){
     printf("struct* %ld\n", sizeof(point*));
     printf("str obj %ld\n", sizeof(pt));
     printf("str param %ld\n", sizeof(pt.x));
-    printf("strange %ld\n", sizeof(Strange));
+    printf("strange %ld\n", sizeof(Strange));*/
+    int a = 0;
+    char b;
+    scanf("%d", &a);
+    scanf("%c", &b);
+    printf("%c", b);
     }

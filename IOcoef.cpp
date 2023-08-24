@@ -1,23 +1,33 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "header.h"
 
-ioerror InputCoefsSTD(Coefs *coefs_p)
+IOError InputCoefsSTD(Coefs *coefs_p)
     {
     assert (coefs_p != NULL);
 
     printf("# Square equation solver\n\n"); /* Описание программы */
 
     printf("# Enter a, b, c: "); /* Понятный для пользователя ввод */
-    if (scanf("%lg %lg %lg",
-        &coefs_p->a, &coefs_p->b, &coefs_p->c) != 3)
+    scanf("%lg %lg %lg", &coefs_p->a, &coefs_p->b, &coefs_p->c);
+
+    char c = '\0';
+    while ((c = getchar()) != '\n')
         {
-        printf("Ошибка ввода\n");
-        return ERROR;
+        if (isspace(c))
+            {
+            continue;
+            }
+        else
+            {
+            printf("Ошибка ввода\n");
+            return ERROR;
+            }
         }
     return OK;
     }
 
-ioerror OutputCoefsSTD(const int nRoots, Roots *roots_p)
+IOError OutputCoefsSTD(const int nRoots, Roots *roots_p)
     {
     assert (isfinite(nRoots));
     assert (roots_p != NULL);

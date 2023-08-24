@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include "header.h"
+#include "solve.h"
 
 enum TestFeedback
     {
     TestFailed = 0,
     TestAcepted = 1
     };
-
-int SolveSquare(Coefs coefs, Roots *roots_p);
-int IsEqual(double a, double b);
 
 TestFeedback TestOne(Coefs coefs, int nRootsRef, Roots RootsRef)
     {

@@ -3,7 +3,7 @@
 #include <math.h>
 #include <assert.h>
 
-enum ioerror
+enum IOError
     {
     OK    = 0,
     ERROR = -1
