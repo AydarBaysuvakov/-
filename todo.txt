@@ -1,3 +1,0 @@
-sizeof(*)
-sizeof(char*) and sizeof(int*)
-//errors? cppreference scanf printf

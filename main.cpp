@@ -1,4 +1,4 @@
-#include "header.h"
+#include "StructConst.h"
 #include "main.h"
 
 int main()
@@ -7,7 +7,7 @@ int main()
     TestAll();
     #else
     Coefs coefs = {0, 0, 0}; /* Инициализация */
-    if (InputCoefsSTD(&coefs)) /* Ввод коэфицентов */
+    if (InputCoefsSTD(&coefs)) /* Ввод коэфицентов */ //coeffs
         {
         return ERROR;
         }

@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "header.h"
+#include "StructConst.h"
+#include "assert.h"
 
 IOError InputCoefsSTD(Coefs *coefs_p)
     {
-    assert (coefs_p != NULL);
+    myAssert(coefs_p != NULL);
 
     printf("# Square equation solver\n\n"); /* Описание программы */
 
@@ -29,8 +30,8 @@ IOError InputCoefsSTD(Coefs *coefs_p)
 
 IOError OutputCoefsSTD(const int nRoots, Roots *roots_p)
     {
-    assert (isfinite(nRoots));
-    assert (roots_p != NULL);
+    myAssert (isfinite(nRoots));
+    myAssert (roots_p != NULL);
 
     switch (nRoots)
         {

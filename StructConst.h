@@ -1,7 +1,6 @@
 #ifndef header
 #define header
 #include <math.h>
-#include <assert.h>
 
 enum IOError
     {

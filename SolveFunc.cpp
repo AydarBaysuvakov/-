@@ -1,5 +1,6 @@
-#include "header.h"
+#include "StructConst.h"
 #include "solve.h"
+#include "assert.h"
 
 /* Документация к функции*/
 /* doxygen */
@@ -16,10 +17,10 @@
 RootsCount SolveSquare(Coefs coefs, Roots *roots_p)
     {
     /* Проверка ошибок */
-    assert (isfinite(coefs.a));
-    assert (isfinite(coefs.b));
-    assert (isfinite(coefs.c));
-    assert (roots_p != NULL);
+    myAssert (isfinite(coefs.a));
+    myAssert (isfinite(coefs.b));
+    myAssert (isfinite(coefs.c));
+    myAssert (roots_p != NULL);
 
     if (IsEqual(coefs.a, 0))
         {
@@ -59,9 +60,9 @@ RootsCount SolveSquare(Coefs coefs, Roots *roots_p)
 RootsCount SolveLinear(const double k, const double b, double *x1_p)
     {
     /* Проверка ошибок */
-    assert (isfinite(k));
-    assert (isfinite(b));
-    assert (x1_p != NULL);
+    myAssert (isfinite(k));
+    myAssert (isfinite(b));
+    myAssert (x1_p != NULL);
 
     if (IsEqual(k, 0))
         {

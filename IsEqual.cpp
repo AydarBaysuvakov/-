@@ -1,5 +1,5 @@
 #include <math.h>
-#include <assert.h>
+#include "assert.h"
 
 const double MEASURE_ERROR = 0.000001;
 
@@ -11,8 +11,8 @@ enum boolean
 
 boolean IsEqual(double a, double b)
     {
-    assert(isfinite(a));
-    assert(isfinite(b));
+    myAssert(isfinite(a));
+    myAssert(isfinite(b));
 
     if (abs(a - b) <= MEASURE_ERROR)
         {
