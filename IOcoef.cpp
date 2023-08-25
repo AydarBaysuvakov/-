@@ -3,14 +3,24 @@
 #include "StructConst.h"
 #include "assert.h"
 
-IOError InputCoefsSTD(Coefs *coefs_p)
+///-------------------------------------------------------------------
+//!@brief Запрашивает коэффиценты квадратного уравнения вида ax^2 + bx + c = 0
+//!
+//!На первой строке выводится информация о программе
+//!На второй строке выводится просьба ввести коэфиценты
+//!Далее пользователь должен ввести три действительных числа, коэффиценты a, b, c
+//!
+//!@return OK=0, если пользователь вводит верные данные, при ошибке выводит ERROR=1
+///-------------------------------------------------------------------
+
+IOError InputCoeffsSTD(Coeffs *coeffs_p)
     {
-    myAssert(coefs_p != NULL);
+    myAssert(coeffs_p != NULL);
 
     printf("# Square equation solver\n\n"); /* Описание программы */
 
     printf("# Enter a, b, c: "); /* Понятный для пользователя ввод */
-    scanf("%lg %lg %lg", &coefs_p->a, &coefs_p->b, &coefs_p->c);
+    scanf("%lg %lg %lg", &coeffs_p->a, &coeffs_p->b, &coeffs_p->c);
 
     char c = '\0';
     while ((c = getchar()) != '\n')
@@ -28,7 +38,18 @@ IOError InputCoefsSTD(Coefs *coefs_p)
     return OK;
     }
 
-IOError OutputCoefsSTD(const int nRoots, Roots *roots_p)
+
+///----------------------------------------------------------
+//!@brief Выводит корни квадратного уравнения вида ax^2 + bx + c = 0
+//!
+//!Печатает корни, если они есть
+//!No roots, если корней нет
+//!Any number, если все корнем уравнения является любое число
+//!
+//!@return выводит ERROR=1 при ошибке или OK=0, если ошибок нет
+///----------------------------------------------------------
+
+IOError OutputCoeffsSTD(const int nRoots, Roots *roots_p)
     {
     myAssert (isfinite(nRoots));
     myAssert (roots_p != NULL);
