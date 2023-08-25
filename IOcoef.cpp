@@ -49,8 +49,7 @@ IOError OutputCoeffsSTD(const int nRoots, Roots *roots_p)
                 printf("Any number\n");
                 break;
         default:
-                // assert("ERROR");
-                // printf("main(): Error: nRoots = %d", nRoots);
+                assert(!"ERROR");
                 return ERROR;
         }
 
