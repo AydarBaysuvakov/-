@@ -1,0 +1,138 @@
+\doxysection*{Решение квадратного уравнения}
+
+\doxysubsubsection*{Первое задание на летней школе от Деда}\hypertarget{md_README_autotoc_md0}{}\doxysubsection{Описание программы}\label{md_README_autotoc_md0}
+Программа решает квадратные уравнения вида ax$^\wedge$2 + bx + c = 0.
+
+Также есть возможность решать линейные уравнения вида kx + b = 0.
+
+Реализованы тестирующая система, система нахождения ошибок, системы ввода и вывода, а также функции для решения квадратного и линейного уравнений.\hypertarget{md_README_autotoc_md1}{}\doxysubsection{Руководство пользователя}\label{md_README_autotoc_md1}
+\hypertarget{md_README_autotoc_md2}{}\doxysubsubsection{Запуск программы}\label{md_README_autotoc_md2}
+Запуск осуществляется при помощи скрипта release в командной строке.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./release}
+
+\end{DoxyCode}
+
+
+Для повторного запуска можно запустить исполняемый файл release.\+out.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./release.out}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsubsection{Ответ программы}\label{md_README_autotoc_md3}
+Если ошибок нет, программа попросит внести необходимые коэфиценты(три действительных числа a, b, c, которые являются членами уравнения ax$^\wedge$2 + bx + c = 0 в соответственном порядке). Если были введены верные коэфиценты, выводится ответ. Возможные сообщения\+:
+\begin{DoxyItemize}
+\item Корни, если они есть
+\item \char`\"{}\+No roots\char`\"{}, если корней нет
+\item \char`\"{}\+Any number\char`\"{}, если все корнем уравнения является любое число
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Функции, константы и структуры}\label{md_README_autotoc_md4}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsubsection{Константы}\label{md_README_autotoc_md5}
+Константы {\bfseries{Roots\+Count}} и {\bfseries{IOError}} содержатся в файле $\ast$$\ast$\char`\"{}\+Struct\+Const.\+h\char`\"{}$\ast$$\ast$. Константы {\bfseries{MEASURE\+\_\+\+ERROR}} и {\bfseries{boolean}} содержатся в файле $\ast$$\ast$\char`\"{}\+Is\+Equal.\+cpp\char`\"{}$\ast$$\ast$.\hypertarget{md_README_autotoc_md6}{}\doxyparagraph{Roots\+Count}\label{md_README_autotoc_md6}
+Содержит четыре константы, каждая из которых обозначает колличество корней уравнения\+:
+\begin{DoxyItemize}
+\item {\bfseries{INF\+\_\+\+ROOTS}} = -\/1
+\item {\bfseries{ZERO\+\_\+\+ROOTS}} = 0
+\item {\bfseries{ONE\+\_\+\+ROOT}} = 1
+\item {\bfseries{TWO\+\_\+\+ROOTS}} = 2
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxyparagraph{IOError}\label{md_README_autotoc_md7}
+Содержит две константы, которые означают успешность выполнения ввода или вывода\+:
+\begin{DoxyItemize}
+\item {\bfseries{OK}} = 0
+\item {\bfseries{ERROR}} = -\/1
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxyparagraph{MEASURE\+\_\+\+ERROR}\label{md_README_autotoc_md8}
+Погрешность для действительных чисел (MEASURE\+\_\+\+ERROR=0.\+000001).\hypertarget{md_README_autotoc_md9}{}\doxyparagraph{boolean}\label{md_README_autotoc_md9}
+Булевый тип данных\+:
+\begin{DoxyItemize}
+\item {\bfseries{FALSE}} = 0
+\item {\bfseries{TRUE}} = 1
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md10}{}\doxysubsubsection{Структуры}\label{md_README_autotoc_md10}
+Все данные структуры содержатся в файле $\ast$$\ast$\char`\"{}\+Struct\+Const.\+h\char`\"{}$\ast$$\ast$.\hypertarget{md_README_autotoc_md11}{}\doxyparagraph{Coefs}\label{md_README_autotoc_md11}
+Коеффиценты уравнения ax$^\wedge$2 + bx + c = 0.
+\begin{DoxyItemize}
+\item {\bfseries{Coefs.\+a}} -\/ Старший член.
+\item {\bfseries{Coefs.\+b}} -\/ Член при х.
+\item {\bfseries{Coefs.\+c}} -\/ Свободный член.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md12}{}\doxyparagraph{Roots}\label{md_README_autotoc_md12}
+Корни уравнения ax$^\wedge$2 + bx + c = 0.
+\begin{DoxyItemize}
+\item {\bfseries{\mbox{\hyperlink{structRoots_a8e03a9505f8fd16a671cdc446ce48d7a}{Roots.\+x1}}}} -\/ Меньший корень.
+\item {\bfseries{\mbox{\hyperlink{structRoots_a2ba5be788affd19f80ec3855cb944e88}{Roots.\+x2}}}} -\/ Больший корень. x1 = x2 = 0, если корней нет или каждое число является корнем.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md13}{}\doxysubsubsection{Функции}\label{md_README_autotoc_md13}
+\hypertarget{md_README_autotoc_md14}{}\doxyparagraph{Input\+Coeffs\+STD}\label{md_README_autotoc_md14}
+Файл\+: {\bfseries{\mbox{\hyperlink{IOcoef_8cpp}{IOcoef.\+cpp}}}}
+
+Запрашивает пользователя коэффиценты квадратного уравнения вида ax$^\wedge$2 + bx + c = 0.
+
+Принимает указатель на структуру \mbox{\hyperlink{structCoeffs}{Coeffs}}.
+
+На первой строке выводится информация о программе. На второй строке выводится просьба ввести коэфиценты. Далее пользователь должен ввести три действительных числа, коэффиценты a, b, c.
+
+Возвращает константу типа {\bfseries{IOError}}\+: OK=0, если пользователь вводит верные данные, при ошибке выводит ERROR=1.\hypertarget{md_README_autotoc_md15}{}\doxyparagraph{Output\+Coeffs\+STD}\label{md_README_autotoc_md15}
+Файл\+: {\bfseries{\mbox{\hyperlink{IOcoef_8cpp}{IOcoef.\+cpp}}}}
+
+Выводит корни квадратного уравнения вида ax$^\wedge$2 + bx + c = 0.
+
+Принимает колличество корней в виде целого числа или константы {\bfseries{Roots\+Count}}.
+
+Печатает корни, если они есть. No roots, если корней нет. Any number, если все корнем уравнения является любое число.
+
+Возвращает константу типа {\bfseries{IOError}}\+: OK=0, если программа сработала корректно, при ошибке выводит ERROR=1.\hypertarget{md_README_autotoc_md16}{}\doxyparagraph{Solve\+Square}\label{md_README_autotoc_md16}
+Файл\+: {\bfseries{\mbox{\hyperlink{SolveFunc_8cpp}{Solve\+Func.\+cpp}}}}
+
+Функция для решения квадратного уравнения вида ax$^\wedge$2 + bx + c = 0.
+
+Принимает коэффиценты уравнения через структуру {\bfseries{\mbox{\hyperlink{structCoeffs}{Coeffs}}}} и указатель на структуру {\bfseries{\mbox{\hyperlink{structRoots}{Roots}}}} для того, чтобы вернуть корни.
+
+Возвращает колличество корней в виде константы {\bfseries{Roots\+Count}}.\hypertarget{md_README_autotoc_md17}{}\doxyparagraph{Solve\+Linear}\label{md_README_autotoc_md17}
+Файл\+: {\bfseries{\mbox{\hyperlink{SolveFunc_8cpp}{Solve\+Func.\+cpp}}}}
+
+Функция для решения линейного уравнения вида kx + b = 0.
+
+Принимает действительные числа k и b -\/ Коэфиценты уравнения. Также принимает указатель, по адресу в который кладет корень уравнения.
+
+Возвращает колличество корней в виде константы {\bfseries{Roots\+Count}}.\hypertarget{md_README_autotoc_md18}{}\doxyparagraph{Is\+Equal}\label{md_README_autotoc_md18}
+Файл\+: {\bfseries{\mbox{\hyperlink{IsEqual_8cpp}{Is\+Equal.\+cpp}}}}
+
+Функция сравнивает действительные числа с учетом погрешности.
+
+Принимает действительные числа a и b. Возвращает тип {\bfseries{boolean}} {\bfseries{True}}, если a и b равны, и {\bfseries{False}}, в ином случае.\hypertarget{md_README_autotoc_md19}{}\doxyparagraph{my\+Assert}\label{md_README_autotoc_md19}
+Файл\+: {\bfseries{\mbox{\hyperlink{myAssert_8cpp}{my\+Assert.\+cpp}}}}
+
+Завершает работу программы и вызывает предупреждающее сообщение. Функция создана для отлавливания ошибок программиста. При использовании флага -\/DDEBUG запускает режим дебага, в ином случае все функции становятся недействительны.\hypertarget{md_README_autotoc_md20}{}\doxysubsubsection{Тестирующая система}\label{md_README_autotoc_md20}
+Отдельно про файл {\bfseries{\mbox{\hyperlink{Test_8cpp}{Test.\+cpp}}}}.\hypertarget{md_README_autotoc_md21}{}\doxyparagraph{Константа Test\+Feedback}\label{md_README_autotoc_md21}
+Содержит два значения\+:
+\begin{DoxyItemize}
+\item Test\+Failed = 0.
+\item Test\+Acepted = 1.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md22}{}\doxyparagraph{Структура Test\+Data}\label{md_README_autotoc_md22}
+
+\begin{DoxyItemize}
+\item Структура {\bfseries{\mbox{\hyperlink{structCoeffs}{Coeffs}}}} -\/ коэфиценты уравнения.
+\item Целое число {\bfseries{n\+Roots\+Ref}} -\/ ожидаемое колличество корней.
+\item Структура {\bfseries{Roots\+Ref}} -\/ ожидаемые корни уравнения.
+\item Строка {\bfseries{name}} -\/ название теста.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md23}{}\doxyparagraph{Test\+One}\label{md_README_autotoc_md23}
+Функция для еденичного тестирования функции {\bfseries{Solve\+Square}}.
+
+Принимает коэфиценты уравнения в структуре {\bfseries{\mbox{\hyperlink{structCoeffs}{Coeffs}}}}, а также ожидаемые значения корней в структуре {\bfseries{\mbox{\hyperlink{structRoots}{Roots}}}} и колличества корней. Выполняет функцию {\bfseries{Solve\+Square}} на полученных коэффицентах и сравнивает полученный результат с ожидаемым. При совпадении отправляет сообщение ОК зелёным цветов и возвращает константу {\bfseries{Test\+Acepted}} типа {\bfseries{Test\+Feedback}}. При несовпадении отправляет сообщение об ошибке красным цветом с указанием ожидаемых и действительных результатов и возвращает константу {\bfseries{Test\+Failed}} типа {\bfseries{Test\+Feedback}}.\hypertarget{md_README_autotoc_md24}{}\doxyparagraph{Test\+All}\label{md_README_autotoc_md24}
+Считывает из файла {\bfseries{test.\+txt}} тестирующие данные, которые записаны в строках в следующем порядке\+:
+\begin{DoxyItemize}
+\item Коэффицент а.
+\item Коэффицент b.
+\item Коэффицент c.
+\item Ожидаемое колличество корней.
+\item Ожидаемый меньший корень(0, если корней нет или их бесконечное колличество).
+\item Ожидаемый больший корень(0, если корней нет или их бесконечное колличество).
+\end{DoxyItemize}
+
+Завпускает функцию {\bfseries{Test\+One}} с полученными данными.
+
+Если тест написан некорректно, то печатает текст, оповещающий об ошибке, и завершает досрочно функцию.
+
+Если все тесты были пройдены, печатается колличество пройденных тестов.
+
+Функция возвращает колличество пройденных тестов. 

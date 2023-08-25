@@ -11,18 +11,16 @@ enum TestFeedback
     TestAcepted = 1
     };
 
+/// @brief Тестируемые данные
 struct TestData
     {
-    Coeffs coeffs = {0, 0, 0};
-    int nRootsRef = 0;
-    Roots RootsRef = {0, 0};
-    const char* name = "test";
+    Coeffs coeffs = {0, 0, 0}; //!< Коэфиценты
+    int nRootsRef = 0;         //!< Ожидаемое колличество корней
+    Roots RootsRef = {0, 0};   //!< Ожидаемые корни
+    const char* name = "test"; //!< Название теста
     };
 
-///-------------------------------------------------------
 //!@brief Функция, тестирующая функцию SolveSquare
-///-------------------------------------------------------
-
 TestFeedback TestOne(Coeffs coeffs, int nRootsRef, Roots RootsRef)
     {
     myAssert(isfinite(coeffs.a));

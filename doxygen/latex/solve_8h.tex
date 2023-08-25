@@ -1,0 +1,86 @@
+\hypertarget{solve_8h}{}\doxysection{Файл solve.\+h}
+\label{solve_8h}\index{solve.h@{solve.h}}
+Граф файлов, в которые включается этот файл\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{solve_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{solve_8h_a442eb00d7cfa655b98d027d7ae43d0ae}{Solve\+Linear}} (const double k, const double b, double $\ast$x1\+\_\+p)
+\item 
+\mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{solve_8h_a479a0d93b82e1eb65e12458451ccd4ba}{Solve\+Square}} (\mbox{\hyperlink{structCoeffs}{Coeffs}} coeffs, \mbox{\hyperlink{structRoots}{Roots}} $\ast$roots\+\_\+p)
+\item 
+int \mbox{\hyperlink{solve_8h_a2292d8144d0402ab0550ce2fae2297ea}{Is\+Equal}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Сравнивает действительные числа с учетом погрешности \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{solve_8h_aeba5ee9b4b0756c83acd6a1acca48634}{my\+Assert}} (int expr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{solve_8h_a2292d8144d0402ab0550ce2fae2297ea}\label{solve_8h_a2292d8144d0402ab0550ce2fae2297ea}} 
+\index{solve.h@{solve.h}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily int Is\+Equal (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Сравнивает действительные числа с учетом погрешности 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em a,b} & Сравниваемые числа\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+True, если a и b равны, иначе False 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve_8h_aeba5ee9b4b0756c83acd6a1acca48634}\label{solve_8h_aeba5ee9b4b0756c83acd6a1acca48634}} 
+\index{solve.h@{solve.h}!myAssert@{myAssert}}
+\index{myAssert@{myAssert}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{myAssert()}{myAssert()}}
+{\footnotesize\ttfamily void my\+Assert (\begin{DoxyParamCaption}\item[{int}]{expr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solve_8h_a442eb00d7cfa655b98d027d7ae43d0ae}\label{solve_8h_a442eb00d7cfa655b98d027d7ae43d0ae}} 
+\index{solve.h@{solve.h}!SolveLinear@{SolveLinear}}
+\index{SolveLinear@{SolveLinear}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{SolveLinear()}{SolveLinear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Linear (\begin{DoxyParamCaption}\item[{const double}]{k,  }\item[{const double}]{b,  }\item[{double $\ast$}]{x1\+\_\+p }\end{DoxyParamCaption})}
+
+Функция для решения линейного уравнения вида kx + b = 0
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em k,b} & Коэфиценты уравнения \\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & Корень уравнения\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Колличество корней 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve_8h_a479a0d93b82e1eb65e12458451ccd4ba}\label{solve_8h_a479a0d93b82e1eb65e12458451ccd4ba}} 
+\index{solve.h@{solve.h}!SolveSquare@{SolveSquare}}
+\index{SolveSquare@{SolveSquare}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{SolveSquare()}{SolveSquare()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCoeffs}{Coeffs}}}]{coeffs,  }\item[{\mbox{\hyperlink{structRoots}{Roots}} $\ast$}]{roots\+\_\+p }\end{DoxyParamCaption})}
+
+Функция для решения квадратного уравнения вида ax$^\wedge$2 + bx + c = 0
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em coeffs} & Коэфиценты уравнения(coeffs.\+a, coeffs.\+b, coeffs.\+c) \\
+\hline
+\mbox{\texttt{ out}}  & {\em roots\+\_\+p} & Указатель на корни уравнения(roots\+\_\+p-\/$>$x1, roots\+\_\+p-\/$>$x2)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Колличество корней (ZERO\+\_\+\+ROOTS=0, ONE\+\_\+\+ROOT=1, TWO\+\_\+\+ROOTS=2)
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Если колличество корней бесконечно, возвращает INF\+\_\+\+ROOTS=-\/1 
+\end{DoxyNote}

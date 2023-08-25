@@ -1,0 +1,5 @@
+<map id="TestData" name="TestData">
+<area shape="rect" id="node1" title="Тестируемые данные" alt="" coords="40,95,119,121"/>
+<area shape="rect" id="node2" href="$structCoeffs.html" title="Коэфиценты уравнения" alt="" coords="5,5,68,32"/>
+<area shape="rect" id="node3" href="$structRoots.html" title="Корни уравнения" alt="" coords="93,5,151,32"/>
+</map>

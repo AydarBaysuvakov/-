@@ -1,0 +1,61 @@
+\hypertarget{SolveFunc_8cpp}{}\doxysection{Файл Solve\+Func.\+cpp}
+\label{SolveFunc_8cpp}\index{SolveFunc.cpp@{SolveFunc.cpp}}
+{\ttfamily \#include \char`\"{}Struct\+Const.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}solve.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}assert.\+h\char`\"{}}\newline
+Граф включаемых заголовочных файлов для Solve\+Func.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{SolveFunc_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{SolveFunc_8cpp_a479a0d93b82e1eb65e12458451ccd4ba}{Solve\+Square}} (\mbox{\hyperlink{structCoeffs}{Coeffs}} coeffs, \mbox{\hyperlink{structRoots}{Roots}} $\ast$roots\+\_\+p)
+\item 
+\mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{SolveFunc_8cpp_a442eb00d7cfa655b98d027d7ae43d0ae}{Solve\+Linear}} (const double k, const double b, double $\ast$x1\+\_\+p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{SolveFunc_8cpp_a442eb00d7cfa655b98d027d7ae43d0ae}\label{SolveFunc_8cpp_a442eb00d7cfa655b98d027d7ae43d0ae}} 
+\index{SolveFunc.cpp@{SolveFunc.cpp}!SolveLinear@{SolveLinear}}
+\index{SolveLinear@{SolveLinear}!SolveFunc.cpp@{SolveFunc.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveLinear()}{SolveLinear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Linear (\begin{DoxyParamCaption}\item[{const double}]{k,  }\item[{const double}]{b,  }\item[{double $\ast$}]{x1\+\_\+p }\end{DoxyParamCaption})}
+
+Функция для решения линейного уравнения вида kx + b = 0
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em k,b} & Коэфиценты уравнения \\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & Корень уравнения\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Колличество корней 
+\end{DoxyReturn}
+\mbox{\Hypertarget{SolveFunc_8cpp_a479a0d93b82e1eb65e12458451ccd4ba}\label{SolveFunc_8cpp_a479a0d93b82e1eb65e12458451ccd4ba}} 
+\index{SolveFunc.cpp@{SolveFunc.cpp}!SolveSquare@{SolveSquare}}
+\index{SolveSquare@{SolveSquare}!SolveFunc.cpp@{SolveFunc.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveSquare()}{SolveSquare()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{StructConst_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCoeffs}{Coeffs}}}]{coeffs,  }\item[{\mbox{\hyperlink{structRoots}{Roots}} $\ast$}]{roots\+\_\+p }\end{DoxyParamCaption})}
+
+Функция для решения квадратного уравнения вида ax$^\wedge$2 + bx + c = 0
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em coeffs} & Коэфиценты уравнения(coeffs.\+a, coeffs.\+b, coeffs.\+c) \\
+\hline
+\mbox{\texttt{ out}}  & {\em roots\+\_\+p} & Указатель на корни уравнения(roots\+\_\+p-\/$>$x1, roots\+\_\+p-\/$>$x2)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Колличество корней (ZERO\+\_\+\+ROOTS=0, ONE\+\_\+\+ROOT=1, TWO\+\_\+\+ROOTS=2)
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Если колличество корней бесконечно, возвращает INF\+\_\+\+ROOTS=-\/1 
+\end{DoxyNote}

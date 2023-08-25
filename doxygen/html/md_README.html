@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Квадратное уравнение: README</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Квадратное уравнение
+   </div>
+   <div id="projectbrief">Решение квадратного уравнения вида ax^2 + bx + c = 0</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">README </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1 align="center">Решение квадратного уравнения</h1>
+<h3 align="center">Первое задание на летней школе от Деда</h3>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Описание программы</h2>
+<p>Программа решает квадратные уравнения вида ax^2 + bx + c = 0.</p>
+<p>Также есть возможность решать линейные уравнения вида kx + b = 0.</p>
+<p>Реализованы тестирующая система, система нахождения ошибок, системы ввода и вывода, а также функции для решения квадратного и линейного уравнений.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Руководство пользователя</h2>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Запуск программы</h3>
+<p>Запуск осуществляется при помощи скрипта release в командной строке.</p>
+<div class="fragment"><div class="line">./release</div>
+</div><!-- fragment --><p>Для повторного запуска можно запустить исполняемый файл release.out.</p>
+<div class="fragment"><div class="line">./release.out</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md3"></a>
+Ответ программы</h3>
+<p>Если ошибок нет, программа попросит внести необходимые коэфиценты(три действительных числа a, b, c, которые являются членами уравнения ax^2 + bx + c = 0 в соответственном порядке). Если были введены верные коэфиценты, выводится ответ. Возможные сообщения:</p><ul>
+<li>Корни, если они есть</li>
+<li>"No roots", если корней нет</li>
+<li>"Any number", если все корнем уравнения является любое число</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Функции, константы и структуры</h2>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Константы</h3>
+<p>Константы <b>RootsCount</b> и <b>IOError</b> содержатся в файле **"StructConst.h"**. Константы <b>MEASURE_ERROR</b> и <b>boolean</b> содержатся в файле **"IsEqual.cpp"**.</p>
+<h4><a class="anchor" id="autotoc_md6"></a>
+RootsCount</h4>
+<p>Содержит четыре константы, каждая из которых обозначает колличество корней уравнения:</p><ul>
+<li><b>INF_ROOTS</b> = -1</li>
+<li><b>ZERO_ROOTS</b> = 0</li>
+<li><b>ONE_ROOT</b> = 1</li>
+<li><b>TWO_ROOTS</b> = 2</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md7"></a>
+IOError</h4>
+<p>Содержит две константы, которые означают успешность выполнения ввода или вывода:</p><ul>
+<li><b>OK</b> = 0</li>
+<li><b>ERROR</b> = -1</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md8"></a>
+MEASURE_ERROR</h4>
+<p>Погрешность для действительных чисел (MEASURE_ERROR=0.000001).</p>
+<h4><a class="anchor" id="autotoc_md9"></a>
+boolean</h4>
+<p>Булевый тип данных:</p><ul>
+<li><b>FALSE</b> = 0</li>
+<li><b>TRUE</b> = 1</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md10"></a>
+Структуры</h3>
+<p>Все данные структуры содержатся в файле **"StructConst.h"**.</p>
+<h4><a class="anchor" id="autotoc_md11"></a>
+Coefs</h4>
+<p>Коеффиценты уравнения ax^2 + bx + c = 0.</p><ul>
+<li><b>Coefs.a</b> - Старший член.</li>
+<li><b>Coefs.b</b> - Член при х.</li>
+<li><b>Coefs.c</b> - Свободный член.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md12"></a>
+Roots</h4>
+<p>Корни уравнения ax^2 + bx + c = 0.</p><ul>
+<li><b><a class="el" href="structRoots.html#a8e03a9505f8fd16a671cdc446ce48d7a" title="Первый корень(Меньший)">Roots.x1</a></b> - Меньший корень.</li>
+<li><b><a class="el" href="structRoots.html#a2ba5be788affd19f80ec3855cb944e88" title="Второй корень(Больший)">Roots.x2</a></b> - Больший корень. x1 = x2 = 0, если корней нет или каждое число является корнем.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Функции</h3>
+<h4><a class="anchor" id="autotoc_md14"></a>
+InputCoeffsSTD</h4>
+<p>Файл: <b><a class="el" href="IOcoef_8cpp.html">IOcoef.cpp</a></b></p>
+<p>Запрашивает пользователя коэффиценты квадратного уравнения вида ax^2 + bx + c = 0.</p>
+<p>Принимает указатель на структуру <a class="el" href="structCoeffs.html" title="Коэфиценты уравнения">Coeffs</a>.</p>
+<p>На первой строке выводится информация о программе. На второй строке выводится просьба ввести коэфиценты. Далее пользователь должен ввести три действительных числа, коэффиценты a, b, c.</p>
+<p>Возвращает константу типа <b>IOError</b>: OK=0, если пользователь вводит верные данные, при ошибке выводит ERROR=1.</p>
+<h4><a class="anchor" id="autotoc_md15"></a>
+OutputCoeffsSTD</h4>
+<p>Файл: <b><a class="el" href="IOcoef_8cpp.html">IOcoef.cpp</a></b></p>
+<p>Выводит корни квадратного уравнения вида ax^2 + bx + c = 0.</p>
+<p>Принимает колличество корней в виде целого числа или константы <b>RootsCount</b>.</p>
+<p>Печатает корни, если они есть. No roots, если корней нет. Any number, если все корнем уравнения является любое число.</p>
+<p>Возвращает константу типа <b>IOError</b>: OK=0, если программа сработала корректно, при ошибке выводит ERROR=1.</p>
+<h4><a class="anchor" id="autotoc_md16"></a>
+SolveSquare</h4>
+<p>Файл: <b><a class="el" href="SolveFunc_8cpp.html">SolveFunc.cpp</a></b></p>
+<p>Функция для решения квадратного уравнения вида ax^2 + bx + c = 0.</p>
+<p>Принимает коэффиценты уравнения через структуру <b><a class="el" href="structCoeffs.html" title="Коэфиценты уравнения">Coeffs</a></b> и указатель на структуру <b><a class="el" href="structRoots.html" title="Корни уравнения">Roots</a></b> для того, чтобы вернуть корни.</p>
+<p>Возвращает колличество корней в виде константы <b>RootsCount</b>.</p>
+<h4><a class="anchor" id="autotoc_md17"></a>
+SolveLinear</h4>
+<p>Файл: <b><a class="el" href="SolveFunc_8cpp.html">SolveFunc.cpp</a></b></p>
+<p>Функция для решения линейного уравнения вида kx + b = 0.</p>
+<p>Принимает действительные числа k и b - Коэфиценты уравнения. Также принимает указатель, по адресу в который кладет корень уравнения.</p>
+<p>Возвращает колличество корней в виде константы <b>RootsCount</b>.</p>
+<h4><a class="anchor" id="autotoc_md18"></a>
+IsEqual</h4>
+<p>Файл: <b><a class="el" href="IsEqual_8cpp.html">IsEqual.cpp</a></b></p>
+<p>Функция сравнивает действительные числа с учетом погрешности.</p>
+<p>Принимает действительные числа a и b. Возвращает тип <b>boolean</b> <b>True</b>, если a и b равны, и <b>False</b>, в ином случае.</p>
+<h4><a class="anchor" id="autotoc_md19"></a>
+myAssert</h4>
+<p>Файл: <b><a class="el" href="myAssert_8cpp.html">myAssert.cpp</a></b></p>
+<p>Завершает работу программы и вызывает предупреждающее сообщение. Функция создана для отлавливания ошибок программиста. При использовании флага -DDEBUG запускает режим дебага, в ином случае все функции становятся недействительны.</p>
+<h3><a class="anchor" id="autotoc_md20"></a>
+Тестирующая система</h3>
+<p>Отдельно про файл <b><a class="el" href="Test_8cpp.html">Test.cpp</a></b>.</p>
+<h4><a class="anchor" id="autotoc_md21"></a>
+Константа TestFeedback</h4>
+<p>Содержит два значения:</p><ul>
+<li>TestFailed = 0.</li>
+<li>TestAcepted = 1.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md22"></a>
+Структура TestData</h4>
+<ul>
+<li>Структура <b><a class="el" href="structCoeffs.html" title="Коэфиценты уравнения">Coeffs</a></b> - коэфиценты уравнения.</li>
+<li>Целое число <b>nRootsRef</b> - ожидаемое колличество корней.</li>
+<li>Структура <b>RootsRef</b> - ожидаемые корни уравнения.</li>
+<li>Строка <b>name</b> - название теста.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md23"></a>
+TestOne</h4>
+<p>Функция для еденичного тестирования функции <b>SolveSquare</b>.</p>
+<p>Принимает коэфиценты уравнения в структуре <b><a class="el" href="structCoeffs.html" title="Коэфиценты уравнения">Coeffs</a></b>, а также ожидаемые значения корней в структуре <b><a class="el" href="structRoots.html" title="Корни уравнения">Roots</a></b> и колличества корней. Выполняет функцию <b>SolveSquare</b> на полученных коэффицентах и сравнивает полученный результат с ожидаемым. При совпадении отправляет сообщение ОК зелёным цветов и возвращает константу <b>TestAcepted</b> типа <b>TestFeedback</b>. При несовпадении отправляет сообщение об ошибке красным цветом с указанием ожидаемых и действительных результатов и возвращает константу <b>TestFailed</b> типа <b>TestFeedback</b>.</p>
+<h4><a class="anchor" id="autotoc_md24"></a>
+TestAll</h4>
+<p>Считывает из файла <b>test.txt</b> тестирующие данные, которые записаны в строках в следующем порядке:</p><ul>
+<li>Коэффицент а.</li>
+<li>Коэффицент b.</li>
+<li>Коэффицент c.</li>
+<li>Ожидаемое колличество корней.</li>
+<li>Ожидаемый меньший корень(0, если корней нет или их бесконечное колличество).</li>
+<li>Ожидаемый больший корень(0, если корней нет или их бесконечное колличество).</li>
+</ul>
+<p>Завпускает функцию <b>TestOne</b> с полученными данными.</p>
+<p>Если тест написан некорректно, то печатает текст, оповещающий об ошибке, и завершает досрочно функцию.</p>
+<p>Если все тесты были пройдены, печатается колличество пройденных тестов.</p>
+<p>Функция возвращает колличество пройденных тестов. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
