@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ main.cpp IOcoef.o IsEqual.o SolveFunc.o Test.o myAssert.o -o debug.out -DDEBUG
+g++ main.cpp IOcoef.cpp is_equal.cpp solving_functions.cpp test.cpp my_assert.cpp -DDEBUG && ./a.out

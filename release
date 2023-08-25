@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ main.cpp IOcoef.o IsEqual.o SolveFunc.o Test.o myAssert.o -o release.out && ./release.out
+g++ main.cpp IOcoef.cpp is_equal.cpp solving_functions.cpp test.cpp my_assert.cpp && ./a.out

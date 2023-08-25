@@ -1,5 +1,6 @@
-#include "StructConst.h"
-#include "main.h"
+#include "IOcoef.h"
+#include "solving_functions.h"
+#include "test.h"
 
 int main()
     {
@@ -7,7 +8,7 @@ int main()
     TestAll();
     #else
     Coeffs coeffs = {0, 0, 0}; /* Инициализация */
-    if (InputCoeffsSTD(&coeffs)) /* Ввод коэфицентов */ //coeffs
+    if (InputCoeffsSTD(&coeffs)) /* Ввод коэффицентов */
         {
         return ERROR;
         }
