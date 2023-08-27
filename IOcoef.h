@@ -1,6 +1,7 @@
 #ifndef IOcoef
 #define IOcoef
 #include "solving_functions.h"
+
 /// @brief Флаг ответа ввода-вывода
 enum IOError
     {

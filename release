@@ -1,2 +1,0 @@
-#!/bin/bash
-g++ main.cpp IOcoef.cpp is_equal.cpp solving_functions.cpp test.cpp my_assert.cpp && ./a.out

@@ -1,5 +1,6 @@
 #ifndef ttt
 #define ttt
+
 /// @brief Успешность прохождения теста
 enum TestFeedback
     {

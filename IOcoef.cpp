@@ -38,7 +38,6 @@ IOError OutputCoeffsSTD(const int nRoots, Roots *roots_p)
                 printf("No roots\n");
                 break;
         case ONE_ROOT:
-                // ->
                 printf("x = %.3lg\n", roots_p->x1);
                 break;
         case TWO_ROOTS:
@@ -49,7 +48,7 @@ IOError OutputCoeffsSTD(const int nRoots, Roots *roots_p)
                 printf("Any number\n");
                 break;
         default:
-                assert(!"ERROR");
+                myAssert(!"ERROR");
                 return ERROR;
         }
 
