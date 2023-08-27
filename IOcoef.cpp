@@ -13,15 +13,13 @@ IOError InputCoeffsSTD(Coeffs *coeffs_p)
     printf("# Enter a, b, c: "); /* Понятный для пользователя ввод */
     scanf("%lg %lg %lg", &coeffs_p->a, &coeffs_p->b, &coeffs_p->c);
 
-    int c = getchar();
-    while (c != '\n')
+    for (c = getchar(); c != '\n'; c = getchar())
         {
         if (!isspace(c))
             {
             printf("Ошибка ввода\n");
             return ERROR;
             }
-        c = getchar();
         }
 
     return OK;
