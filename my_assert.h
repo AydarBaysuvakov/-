@@ -9,6 +9,6 @@ void myAssert(int expr, const char* text, const char file[], int line, const cha
 
 #ifdef DEBUG
 #define myAssert(expr) myAssert(expr, #expr, __FILE__, __LINE__, __FUNCTION__)
-#else
+#else  //DEBUG
 #define myAssert(expr) ;
 #endif //DEBUG

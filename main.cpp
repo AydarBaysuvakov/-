@@ -14,7 +14,7 @@ int main()
         }
 
     Roots roots = {0, 0}; /* Инициализируем корни когда это нужно */
-    int nRoots = SolveSquare(coeffs, &roots);
+    RootsCount nRoots = SolveSquare(coeffs, &roots);
 
     return OutputCoeffsSTD(nRoots, &roots); /* Вывод корней */
     #endif

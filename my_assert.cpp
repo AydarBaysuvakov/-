@@ -6,7 +6,7 @@ void myAssert(int expr, const char* text, const char* file, int line, const char
     {
     if (!expr)
         {
-        printf( RED("О НЕТ, ТУПОЙ ПРОГРАММИСТ ЗАПОРОЛСЯ\nНЕ ПРОШЛО УСЛОВИЕ %s\nФАЙЛ ''%s''\nФУНКЦИЯ: %s\nСТРОКА: %d\u001b[0m\n"), text, file, func, line);
+        ColuredPrintf( RED, "О НЕТ, ТУПОЙ ПРОГРАММИСТ ЗАПОРОЛСЯ\nНЕ ПРОШЛО УСЛОВИЕ %s\nФАЙЛ ''%s''\nФУНКЦИЯ: %s\nСТРОКА: %d\u001b[0m\n", text, file, func, line);
         exit(1);
         }
     }

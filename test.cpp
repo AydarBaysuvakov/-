@@ -20,14 +20,14 @@ TestFeedback TestOne(Coeffs coeffs, RootsCount nRootsRef, Roots RootsRef)
 
     if (!IsEqual(roots.x1, RootsRef.x1) || !IsEqual(roots.x2, RootsRef.x2))
         {
-        printf(RED("ERROR: x1 = %lg, x2 = %lg, nRoots = %d\n\tEXCEPTED:  x1 = %lg, x2 = %lg, nRoots = %d\n"),
+        ColuredPrintf(RED, "ERROR: x1 = %lg, x2 = %lg, nRoots = %d\n\tEXCEPTED:  x1 = %lg, x2 = %lg, nRoots = %d\n",
         roots.x1, roots.x2, nRoots,
         RootsRef.x1, RootsRef.x2, nRootsRef);
         return TEST_FAILED;
         }
     else
         {
-        printf(GREEN("OK\n"));
+        ColuredPrintf(GREEN, "OK\n");
         return TEST_ACEPTED;
         }
     }
@@ -41,11 +41,11 @@ int TestAll()
     char mode[] = "r";
     FILE *fp = fopen(fname, mode);
 
-    TestData test { {0, 0, 0}, 0, {0, 0}, "test" };
+    TestData test { {0, 0, 0}, ZERO_ROOTS, {0, 0}, "test" };
 
     while (fscanf(fp, "%lg %lg %lg %d %lg %lg",
                   &test.coeffs.a, &test.coeffs.b, &test.coeffs.c,
-                  &test.nRootsRef, &test.RootsRef.x1,
+                  (int*) &test.nRootsRef, &test.RootsRef.x1,
                   &test.RootsRef.x2) != EOF)
         {
 
@@ -56,8 +56,8 @@ int TestAll()
             if (!isspace(c))
                 {
                 //printf_colored(COLOR_YELLOW, "adsfads", fasd , asdf,asdf ); va_arg va_list
-                printf(YELLOW("Внимание: Ошибка теста\nНомер теста: %d\n"), TestNumber);
-                printf(YELLOW("Пройдено %d тестов из %d\n"), nTestAcepted, TestNumber);
+                ColuredPrintf(YELLOW, "Внимание: Ошибка теста\nНомер теста: %d\n", TestNumber);
+                ColuredPrintf(YELLOW, "Пройдено %d тестов из %d\n", nTestAcepted, TestNumber);
                 return nTestAcepted;
                 }
             }
@@ -66,6 +66,6 @@ int TestAll()
         nTestAcepted += TestOne(test.coeffs, test.nRootsRef, test.RootsRef);
         }
 
-    printf(GREEN("Пройдено %d тестов из %d\n"), nTestAcepted, TestNumber);
+    ColuredPrintf(GREEN, "Пройдено %d тестов из %d\n", nTestAcepted, TestNumber);
     return nTestAcepted;
     }

@@ -1,6 +1,17 @@
 #ifndef __COLOUR_H__
 #define __COLOUR_H__
-#define RED(   text) "\u001b[31m" text "\u001b[0m"
-#define GREEN( text) "\u001b[32m" text "\u001b[0m"
-#define YELLOW(text) "\u001b[33m" text "\u001b[0m"
+
+enum Colour
+    {
+    BLACK   = 30,
+    RED     = 31,
+    GREEN   = 32,
+    YELLOW  = 33,
+    BLUE    = 34,
+    MAGENTA = 35,
+    CYAN    = 36,
+    RESET   = 0
+    };
+
+void ColuredPrintf(Colour colour, const char* format, ...);
 #endif // __COLOUR_H__

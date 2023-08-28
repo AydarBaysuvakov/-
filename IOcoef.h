@@ -25,5 +25,5 @@ IOError InputCoeffsSTD(Coeffs *coeffs_p);
 //!Any number, если все корнем уравнения является любое число.
 //!
 //!@return выводит ERROR=1 при ошибке или OK=0, если ошибок нет.
-IOError OutputCoeffsSTD(int nRoots, Roots *roots_p);
+IOError OutputCoeffsSTD(RootsCount nRoots, Roots *roots_p);
 #endif //__IOC__

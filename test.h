@@ -18,7 +18,7 @@ struct TestData
     };
 
 //!@brief Функция, тестирующая функцию SolveSquare.
-TestFeedback TestOne(Coeffs coeffs, int nRootsRef, Roots RootsRef);
+TestFeedback TestOne(Coeffs coeffs, RootsCount nRootsRef, Roots RootsRef);
 
 //!@brief Функция, которая, проводит серию тестов на основе данных из файла test.txt.
 int TestAll();
