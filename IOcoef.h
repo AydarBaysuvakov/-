@@ -15,7 +15,7 @@ enum IOError
 //!На второй строке выводится просьба ввести коэфиценты.
 //!Далее пользователь должен ввести три действительных числа, коэффиценты a, b, c.
 //!
-//!@return OK=0, если пользователь вводит верные данные, при ошибке выводит ERROR=1.
+//!@return OK=0, если пользователь вводит верные данные, при ошибке выводит ERROR=-1.
 IOError InputCoeffsSTD(Coeffs *coeffs_p);
 
 //!@brief Выводит корни квадратного уравнения вида ax^2 + bx + c = 0.
@@ -24,6 +24,6 @@ IOError InputCoeffsSTD(Coeffs *coeffs_p);
 //!No roots, если корней нет.
 //!Any number, если все корнем уравнения является любое число.
 //!
-//!@return выводит ERROR=1 при ошибке или OK=0, если ошибок нет.
+//!@return выводит ERROR=-1 при ошибке или OK=0, если ошибок нет.
 IOError OutputCoeffsSTD(RootsCount nRoots, Roots *roots_p);
 #endif //__IOC__
