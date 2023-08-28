@@ -4,7 +4,7 @@
 #include "solving_functions.h"
 #include "IOcoef.h"
 
-IOError InputCoeffsSTD(Coeffs *coeffs_p)
+IOError InputCoeffsSTD(Coeffs* coeffs_p)
     {
     myAssert(coeffs_p != NULL);
 
@@ -13,7 +13,7 @@ IOError InputCoeffsSTD(Coeffs *coeffs_p)
     printf("# Enter a, b, c: "); /* Понятный для пользователя ввод */
     scanf("%lg %lg %lg", &coeffs_p->a, &coeffs_p->b, &coeffs_p->c);
 
-    for (c = getchar(); c != '\n'; c = getchar())
+    for (char c = getchar(); c != '\n'; c = getchar())
         {
         if (!isspace(c))
             {
@@ -25,9 +25,8 @@ IOError InputCoeffsSTD(Coeffs *coeffs_p)
     return OK;
     }
 
-IOError OutputCoeffsSTD(const int nRoots, Roots *roots_p)
+IOError OutputCoeffsSTD(const RootsCount nRoots, Roots *roots_p)
     {
-    myAssert (isfinite(nRoots));
     myAssert (roots_p != NULL);
 
     switch (nRoots)
